@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music – Z3ROth DRAFT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<main class="container">
+
+  <!-- NAV -->
+  <header class="site-nav">
+    <a href="index.html" class="nav-logo">Z3ROth DRAFT</a>
+    <nav class="nav-links">
+
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1>Z3ROth DRAFT</h1>
+    <h2>music</h2>
+  </header>
+
+  <!-- GLOBAL AUDIO -->
+  <audio id="globalAudio" preload="auto" playsinline></audio>
+
+  <!-- SINGLE TRACK -->
+  <section class="album-section">
+
+    <div class="track">
+
+      <div class="track-meta">
+        <span class="track-number">I</span>
+        <span class="track-title">GTA 03 - NITROCEN, KIDA</span>
+      </div>
+
+      <div class="album-art"
+           data-audio="music/track1.mp3"
+           data-hq="https://drive.google.com/file/d/1SDfGJPEC1WWccXA6bwdlZJ3uQ2jOo-i4/view?usp=sharing">
+        <img src="assets/album1.jpg" alt="GHAR">
+        <button class="play-btn">▶</button>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="music-actions">
+
+        <!-- ABOUT TRACK -->
+        <button class="btn secondary" id="aboutTrackBtn">
+          ABOUT THIS TRACK
+        </button>
+
+        <!-- SUPPORT -->
+        <button class="btn primary paid-download">
+          Support Artist · HQ Download
+        </button>
+
+        <small class="download-note">
+          You can listen for free. Support is optional but deeply appreciated.
+        </small>
+
+      </div>
+
+    </div>
+
+  </section>
+</main>
+
+<!-- ABOUT TRACK MODAL -->
+<div class="modal" id="aboutTrackModal">
+  <div class="modal-content">
+
+    <button class="modal-x" aria-label="Close">✕</button>
+
+    <p class="modal-title">About “GTA 03”</p>
+
+    <p class="modal-text">
+      This track was written in fragments—between moving cities,
+      broken routines, and nights that didn’t feel like home.<br><br>
+      “GHAR” isn’t about a place as much as it is about the absence of one.
+      It carries restlessness, nostalgia, and the quiet hope that
+      somewhere, something will eventually feel familiar again.
+    </p>
+
+  </div>
+</div>
+
+<!-- QR MODAL -->
+<div class="modal" id="qrModal">
+  <div class="modal-content">
+
+    <button class="modal-x" aria-label="Close">✕</button>
+
+    <p class="modal-title">Support Independent Art 🖤</p>
+
+    <p class="modal-text">
+      You don’t have to pay to download the HQ version.<br>
+      If you choose to support the craft, I’m deeply grateful.
+    </p>
+
+    <img src="assets/qr.png" alt="Support QR Code">
+
+    <!-- UPI LINE -->
+    <p class="modal-text" style="font-size:0.85rem;">
+      UPI ID (optional):<br>
+      <strong style="user-select:all;">jdipak04@ybl</strong>
+    </p>
+
+    <p class="modal-thanks">
+      QR or UPI — both are optional. Thank you for listening.
+    </p>
+
+    <button class="btn primary confirm-download">
+      Continue to HQ Download
+    </button>
+
+  </div>
+</div>
+
+<!-- PLAYER BAR -->
+<div id="playerBar" class="player-bar hidden">
+  <div class="player-left">
+    <img id="playerArt" src="" alt="">
+    <div class="player-info">
+      <span id="playerTrackNumber">I</span>
+      <span id="playerTrackTitle">Track</span>
+    </div>
+  </div>
+
+  <div class="player-center">
+    <div class="player-controls">
+      <button id="prevBtn">⏮</button>
+      <button id="playPauseBtn">▶</button>
+      <button id="nextBtn">⏭</button>
+      <button id="loopBtn">🔁</button>
+    </div>
+    <input type="range" id="progressBar" min="0" max="100" step="0.1">
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<!-- ABOUT TRACK MODAL LOGIC -->
+<script>
+  const aboutBtn = document.getElementById("aboutTrackBtn");
+  const aboutModal = document.getElementById("aboutTrackModal");
+
+  aboutBtn.addEventListener("click", () => {
+    aboutModal.classList.add("show");
+  });
+
+  aboutModal.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("modal") ||
+      e.target.classList.contains("modal-x")
+    ) {
+      aboutModal.classList.remove("show");
+    }
+  });
+</script>
+
+</body>
+</html>
